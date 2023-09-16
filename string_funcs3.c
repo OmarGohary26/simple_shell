@@ -63,7 +63,7 @@ char *_strncat(char *dest, char *src, int n)
  * *_strchr - gets a character in a string
  * @s: string to parse
  * @c: character to search for
- * Retrurn: ptr to memory area s
+ * Return: ptr to memory area s
 */
 
 char *_strchr(char *s, char c)

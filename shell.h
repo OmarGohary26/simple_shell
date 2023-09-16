@@ -44,7 +44,7 @@ extern char **environ;
 */
 typedef struct liststr
 {
-	int numl=;
+	int num;
 	char *str;
 	struct liststr *next;
 } list_t;
@@ -76,6 +76,7 @@ typedef struct passinfo
 	char *arg;
 	char **argv;
 	char *path;
+	int argc;
 	unsigned int line_cnt;
 	int err_num;
 	int linecnt_flag;
