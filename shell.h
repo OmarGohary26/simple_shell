@@ -166,7 +166,7 @@ int _atoi(char *);
 /* more_funcs2.c */
 int _erratoi(char *);
 void print_error(info_t *, char *);
-int print_d(int, int);
+int print_dec(int, int);
 char *conv_num(long int, int, int);
 void rmv_cmnts(char *);
 
