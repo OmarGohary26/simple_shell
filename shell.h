@@ -131,7 +131,7 @@ int _putsfd(char *str, int fd);
 /* string_funcs.c */
 int _strlen(char *);
 int _strcmp(char *, char *);
-char *strt_w(const char *, const char *);
+char *starts_with(const char *, const char *);
 char *_strcat(char *, char *);
 
 /* string_funcs2.c */
