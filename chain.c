@@ -104,7 +104,7 @@ int replace_vars(info_t *info)
 
 	for (i = 0; info->argv[i]; i++)
 	{
-		if (info->argv[i][0] != '&' || !info->argv[i][1])
+		if (info->argv[i][0] != '$' || !info->argv[i][1])
 			continue;
 
 		if (!_strcmp(info->argv[i], "$?"))
