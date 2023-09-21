@@ -149,12 +149,12 @@ char *_strchr(char *, char);
 char **strtow(char *, char *);
 char **strtow2(char *, char);
 
-/* memory_funcs */
+/* mem_funcs */
 char *_memset(char *, char, unsigned int);
 void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
-/* memory_funcs2.c */
+/* mem_funcs2.c */
 int bfree(void **);
 
 /* more_funcs.c */
@@ -179,7 +179,7 @@ int _myhelp(info_t *);
 int _myhist(info_t *);
 int _myalias(info_t *);
 
-/* getline.c module */
+/* get_line.c module */
 ssize_t get_input(info_t *);
 int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
@@ -208,14 +208,14 @@ int read_hist(info_t *info);
 int build_hist_list(info_t *info, char *buf, int linecnt);
 int renum_hist(info_t *info);
 
-/* liststr.c module */
+/* list_string.c module */
 list_t *add_node(list_t **, const char *, int);
 list_t *add_node_end(list_t **, const char *, int);
 size_t print_list_str(const list_t *);
 int delete_node_at_indx(list_t **, unsigned int);
 void free_list(list_t **);
 
-/* liststr2.c */
+/* list_string2.c */
 size_t list_len(const list_t *);
 char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
