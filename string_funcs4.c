@@ -24,7 +24,7 @@ char **strtow(char *str, char *delim)
 	p = malloc((1 + wordctr) * sizeof(char *));
 	if (!p)
 		return (NULL);
-	for (i = 0; j = 0; j < wordctr; j++)
+	for (i = 0, j = 0; j < wordctr; j++)
 	{
 		while (is_delim(str[i], delim))
 			i++;
@@ -70,7 +70,7 @@ char **strtow2(char *str, char delim)
 	p = malloc((1 + wordctr) * sizeof(char *));
 	if (!p)
 		return (NULL);
-	for (i = 0; j = 0; j < wordctr; j++)
+	for (i = 0, j = 0; j < wordctr; j++)
 	{
 		while (str[i] == delim && str[i] != delim)
 			i++;

@@ -107,13 +107,13 @@ int read_hist(info_t *info)
  * Return: 0
 */
 
-int build_hist_list(info_t *info, char *buf, int linecount)
+int build_hist_list(info_t *info, char *buf, int line_cnt)
 {
 	list_t *node = NULL;
 
 	if (info->hist)
 		node = info->hist;
-	add_node_end(&node, buf, linecnt);
+	add_node_end(&node, buf, line_cnt);
 
 	if (!info->hist)
 		info->hist = node;
