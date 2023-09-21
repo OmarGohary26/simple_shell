@@ -18,7 +18,8 @@ int _myhist(info_t *info)
  */
 int unset_alias(info_t *info, char *str)
 {
-	char c, *p;
+	char c;
+	char *p;
 	int r;
 
 	p = _strchr(str, '=');
