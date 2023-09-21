@@ -61,7 +61,7 @@ int _mycd(info_t *info)
 		cd_ret = chdir(info->argv[1]);
 	if (cd_ret == -1)
 	{
-		print_error(info, "can't cd to");
+		print_error(info, "can't cd to ");
 		_eputs(info->argv[1]), _eputchar('\n');
 	}
 	else
@@ -81,7 +81,7 @@ int _myhelp(info_t *info)
 	char **arg_arr;
 
 	arg_arr = info->argv;
-	_puts("help call work. Function not yet implemented \n");
+	_puts("help call works. Function not yet implemented \n");
 	if (0)
 		_puts(*arg_arr);
 	return (0);
