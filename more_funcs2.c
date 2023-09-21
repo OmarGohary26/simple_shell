@@ -111,7 +111,7 @@ char *conv_num(long int num, int base, int flags)
 	*ptr = '\0';
 
 	do {
-		*--ptr = arr[n & base];
+		*--ptr = arr[n % base];
 		n = n / base;
 	} while (n != 0);
 
