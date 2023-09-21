@@ -1,4 +1,4 @@
-#include "shell.c"
+#include "shell.h"
 /**
  * get_hist_file - gets the history
  * @info: struct para
@@ -36,7 +36,7 @@ int write_hist(info_t *info)
 	if (!f_name)
 		return (-1);
 
-	fd = open(f_name, O_CREATE | O_TRUNC | O_RDWR, 0644);
+	fd = open(f_name, O_CREAT | O_TRUNC | O_RDWR, 0644);
 	free(f_name);
 	if (fd == -1)
 		return (-1);
@@ -75,7 +75,7 @@ int read_hist(info_t *info)
 	buf = malloc(sizeof(char) * (f_size + 1));
 	if (!buf)
 		return (0);
-	rd_len = read(fd, buf, fsize);
+	rd_len = read(fd, buf, f_size);
 	buf[f_size] = 0;
 	if (rd_len <= 0)
 		return (free(buf), 0);
@@ -91,12 +91,14 @@ int read_hist(info_t *info)
 		build_hist_list(info, buf + lst, l_count++);
 
 	free(buf);
-	info->histcount = l_count;
-	while (info->histcount-- >= HIST_MAX)
-		delete_node_at_index(&(info->history), 0);
+	info->hist_cnt = l_count;
+	while (info->hist_cnt-- >= HIST_MAX)
+		delete_node_at_indx(&(info->history), 0);
 	renum_hist(info);
-	return (info->histcount);
+	return (info->hist_cnt);
+
 }
+
 /**
  * build_hist_list - add entry to history linked list
  * @info: struct para
@@ -104,6 +106,7 @@ int read_hist(info_t *info)
  * @linecount: para
  * Return: 0
 */
+
 int build_hist_list(info_t *info, char *buf, int linecount)
 {
 	list_t *node = NULL;
@@ -116,11 +119,13 @@ int build_hist_list(info_t *info, char *buf, int linecount)
 		info->history = node;
 	return (0);
 }
+
 /**
  * renum_hist - renumbers the history linked list
  * @info: struct para
  * Return: int
-*/
+ */
+
 int renum_hist(info_t *info)
 {
 	list_t *node = info->history;
@@ -131,5 +136,5 @@ int renum_hist(info_t *info)
 		node->num = i++;
 		node = node->next;
 	}
-	return (info->histcount = i);
+	return (info->hist_cnt = i);
 }
