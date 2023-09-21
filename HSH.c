@@ -43,7 +43,7 @@ int hsh(info_t *info, char **av)
 	return (builtin_ret);
 }
 /**
- * find_builtin - finds a builtin command
+ * find_bltin - finds a builtin command
  * @info: the parameter & return info struct
  *
  * Return: -1 if builtin not found,
@@ -51,7 +51,7 @@ int hsh(info_t *info, char **av)
  *			1 if builtin found but not successful,
  *			-2 if builtin signals exit()
  */
-int find_builtin(info_t *info)
+int find_bltin(info_t *info)
 {
 	int i, built_in_ret = -1;
 	builtin_table builtintbl[] = {
