@@ -102,7 +102,7 @@ int read_hist(info_t *info)
  * build_hist_list - add entry to history linked list
  * @info: struct para
  * @buf: para
- * @linecount: para
+ * @line_cnt: para
  * Return: 0
 */
 
