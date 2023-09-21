@@ -96,7 +96,6 @@ int read_hist(info_t *info)
 		delete_node_at_indx(&(info->hist), 0);
 	renum_hist(info);
 	return (info->hist_cnt);
-
 }
 
 /**
