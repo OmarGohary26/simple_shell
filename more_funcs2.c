@@ -13,7 +13,7 @@ int _erratoi(char *str)
 
 	if (*str == '+')
 		str++;
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 		{
@@ -111,7 +111,7 @@ char *conv_num(long int num, int base, int flags)
 	*ptr = '\0';
 
 	do {
-		*--pt = arr[n & base];
+		*--ptr = arr[n & base];
 		n = n / base;
 	} while (n != 0);
 
@@ -130,7 +130,7 @@ void rmv_cmnts(char *buf)
 {
 	int itr;
 
-	for (itr = 0; buf[itr] != '\0'; i++)
+	for (itr = 0; buf[itr] != '\0'; itr++)
 	{
 		if (buf[itr] == '#' && (!itr || buf[itr - 1] == ' '))
 		{

@@ -17,7 +17,7 @@ list_t *add_node(list_t **head, const char *str, int num)
 	nw_hd = malloc(sizeof(list_t));
 	if (!nw_hd)
 		return (NULL);
-	_memset((void *)nw_h, 0, sizeof(list_t));
+	_memset((void *)nw_hd, 0, sizeof(list_t));
 	nw_hd->num = num;
 	if (str)
 	{
@@ -57,7 +57,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 	if (str)
 	{
 		new_node->str = _strdup(str);
-		if (!new_noe->str)
+		if (!new_node->str)
 		{
 			free(new_node);
 			return (NULL);

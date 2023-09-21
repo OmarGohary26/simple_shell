@@ -22,7 +22,7 @@ int hsh(info_t *info, char **av)
 		if (r != -1)
 		{
 			set_info(info, av);
-			builtin_ret = find_builtin(info);
+			builtin_ret = find_bltin(info);
 			if (builtin_ret == -1)
 				find_cmd(info);
 		}
@@ -32,12 +32,12 @@ int hsh(info_t *info, char **av)
 	}
 	write_hist(info);
 	free_info(info, 1);
-	if (!interactive(info) && info->status)
-		exit(info->status);
+	if (!interactive(info) && info->stat)
+		exit(info->stat);
 	if (builtin_ret == -2)
 	{
 		if (info->err_num == -1)
-			exit(info->status);
+			exit(info->stat);
 		exit(info->err_num);
 	}
 	return (builtin_ret);
@@ -58,7 +58,7 @@ int find_builtin(info_t *info)
 		{"exit", _myexit},
 		{"env", _myenv},
 		{"help", _myhelp},
-		{"history", _myhistory},
+		{"history", _myhist},
 		{"setenv", _mysetenv},
 		{"unsetenv", _myunsetenv},
 		{"cd", _mycd},
@@ -69,7 +69,7 @@ int find_builtin(info_t *info)
 	for (i = 0; builtintbl[i].type; i++)
 		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
 		{
-			info->line_count++;
+			info->line_cnt++;
 			built_in_ret = builtintbl[i].func(info);
 			break;
 		}
@@ -87,10 +87,10 @@ void find_cmd(info_t *info)
 	int i, z;
 
 	info->path = info->argv[0];
-	if (info->linecount_flag == 1)
+	if (info->linecnt_flag == 1)
 	{
-		info->line_count++;
-		info->linecount_flag = 0;
+		info->line_cnt++;
+		info->linecnt_flag = 0;
 	}
 	for (i = 0, z = 0; info->arg[i]; i++)
 		if (!is_delim(info->arg[i], " \t\n"))
@@ -111,7 +111,7 @@ void find_cmd(info_t *info)
 			fork_cmd(info);
 		else if (*(info->arg) != '\n')
 		{
-			info->status = 127;
+			info->stat = 127;
 			print_error(info, "not found\n");
 		}
 	}
@@ -144,11 +144,11 @@ void fork_cmd(info_t *info)
 	}
 	else
 	{
-		wait(&(info->status));
-		if (WIFEXITED(info->status))
+		wait(&(info->stat));
+		if (WIFEXITED(info->stat))
 		{
-			info->status = WEXITSTATUS(info->status);
-			if (info->status == 126)
+			info->stat = WEXITSTATUS(info->stat);
+			if (info->stat == 126)
 				print_error(info, "Permission denied\n");
 		}
 	}

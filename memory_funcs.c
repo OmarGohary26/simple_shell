@@ -4,10 +4,10 @@
  * _memset - fills memory with constant byte
  * @ptr: pointer to memory
  * @b: bytes to fill memory
- * @num: number of bytes to fill
+ * @n: number of bytes to fill
  * Return: ptr
 */
-char *_memset(char *ptr, char b, unsigned int num)
+char *_memset(char *ptr, char b, unsigned int n)
 {
 	unsigned int i;
 

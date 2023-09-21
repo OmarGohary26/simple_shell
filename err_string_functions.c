@@ -28,7 +28,7 @@ int _eputchar(char ch)
 	static int i;
 	static char buf[WRITE_BUF_SZ];
 
-	if (c == BUF_FLSH || i >= WRITE_BUF_SZ)
+	if (ch == BUF_FLSH || i >= WRITE_BUF_SZ)
 	{
 		write(2, buf, i);
 		i = 0;

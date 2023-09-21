@@ -28,9 +28,9 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 				(*buf)[r - 1] = '\0';
 				r--;
 			}
-			info->linecount_flag = 1;
-			remove_comments(*buf);
-			build_history_list(info, *buf, info->histcount++);
+			info->linecnt_flag = 1;
+			rmv_cmnts(*buf);
+			build_hist_list(info, *buf, info->histcnt++);
 			{
 				*len = r;
 				info->cmd_buf = buf;
@@ -96,7 +96,7 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 
 	if (*i)
 		return (0);
-	x = read(info->readfd, buf, READ_BUF_SIZE);
+	x = read(info->readfd, buf, READ_BUF_SZ);
 	if (x >= 0)
 		*i = x;
 	return (x);
@@ -112,7 +112,7 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
  */
 int _getline(info_t *info, char **ptr, size_t *length)
 {
-	static char buf[READ_BUF_SIZE];
+	static char buf[READ_BUF_SZ];
 	static size_t i, len;
 	size_t z;
 	ssize_t r = 0, s = 0;
