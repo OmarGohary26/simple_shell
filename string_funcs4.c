@@ -65,7 +65,7 @@ char **strtow2(char *str, char delim)
 		if ((str[i] != delim && str[i + 1] == delim) ||
 				(str[i] != delim && !str[i + 1]) || str[i + 1] == delim)
 			wordctr++;
-	if (wordctr)
+	if (wordctr == 0)
 		return (NULL);
 	p = malloc((1 + wordctr) * sizeof(char *));
 	if (!p)
@@ -92,5 +92,3 @@ char **strtow2(char *str, char delim)
 	p[j] = NULL;
 	return (p);
 }
-
-
