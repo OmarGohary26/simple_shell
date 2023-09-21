@@ -75,7 +75,7 @@ int _putchar(char c)
 	static int i;
 	static char buf[WRITE_BUF_SZ];
 
-	if (c == BUF_FLSH || 1 >= WRITE_BUF_SZ)
+	if (c == BUF_FLSH || i >= WRITE_BUF_SZ)
 	{
 		write(1, buf, i);
 	}
