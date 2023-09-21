@@ -47,6 +47,24 @@ char *_strdup(const char *str)
 }
 
 /**
+ *_puts - prints an input string
+ *@str: the string to be printed
+ * Return: Nothing
+ */
+void _puts(char *str)
+{
+	int i = 0;
+
+	if (!str)
+		return;
+	while (str[i] != '\0')
+	{
+		_putchar(str[i]);
+		i++;
+	}
+}
+
+/**
  * _putchar - writes character c to stdout
  * @c: character to print
  * Return: 1 on success, -1 on error, and errno is set
