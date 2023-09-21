@@ -41,13 +41,13 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * strt_w - checks if needle starts with haystack
+ * starts_with - checks if needle starts with haystack
  * @haystack: string
  * @needle: substring to find
  * Return: address of next char of haystack or NULL
 */
 
-char *strt_w(const char *haystack, const char *needle)
+char *starts_with(const char *haystack, const char *needle)
 {
 	while (*needle)
 		if (*needle++ != *haystack++)
